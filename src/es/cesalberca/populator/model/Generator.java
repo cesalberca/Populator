@@ -14,19 +14,22 @@ import java.util.ArrayList;
 public class Generator {
     private ArrayList<String> names;
     private ArrayList<String> lastNames;
+    private ArrayList<String> catProf;
+    
     
     public ArrayList<Human> generate(int numHumans){
         ArrayList<Human> humans = humans = new ArrayList(numHumans);
-        humans.add(new Human(
+        
+        for (Human human : humans) {
+            humans.add(new Human(
                 getRandomName(this.names), 
                 getRandomLastName(this.lastNames), 
                 getRandomSalary(), 
                 getRandomBYear(), 
                 getRandomProfCat()));
+        }
         return humans;
     }
-    
-    
     
     public String getRandomName(ArrayList<String> names){
         int max = names.size();
@@ -44,15 +47,18 @@ public class Generator {
         int salary_min=8000;
         int salary_max=150000;
         return (int) ((Math.random() + salary_min) * salary_max);
-        
     }
     
     public int getRandomBYear(){
-        return 1;
+        int yearMin=1951;
+        int yearMax=1998;
+        return (int) ((Math.random() + yearMin) * yearMax);
     }
     
     public String getRandomProfCat(){
-        return "b";
+        int max = catProf.size();
+        int randPosition = (int)Math.random() * max;
+        return catProf.get(randPosition);
     }
     
     public void setNames() {
@@ -121,5 +127,13 @@ public class Generator {
         lastNames.add("Agesilao");
         lastNames.add("Agripino");
         lastNames.add("Agustín");
+    }
+    
+    public void setCatProf() {
+        catProf = new ArrayList();
+        catProf.add("Becario");
+        catProf.add("IT");
+        catProf.add("Comercial");
+        
     }
 }
