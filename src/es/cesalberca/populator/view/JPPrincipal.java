@@ -90,13 +90,12 @@ public class JPPrincipal extends javax.swing.JPanel {
     
     private void jbGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGenerarActionPerformed
         Generator gen = new Generator();
-        ArrayList<Human> myObject = gen.generate(10);
-        for (Human h : myObject) {
-            System.out.println("hola");
-            System.out.println(h.toInsert("t_emple"));
-        }
-        //FileExporter fex = new FileExporter("inserts.txt",  "t_empleados");
-        //fex.save(gen.generate((int)jsRandom.getValue()));
+        ArrayList<Human> myObject = gen.generate((int)jsRandom.getValue());
+//        for (Human h : myObject) {
+//            System.out.println(h.toInsert("t_emple"));
+//        }
+        FileExporter fex = new FileExporter("ins.txt",  "t_empleados");
+        fex.save(myObject);
     }//GEN-LAST:event_jbGenerarActionPerformed
 
 

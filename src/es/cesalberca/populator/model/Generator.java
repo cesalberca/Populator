@@ -16,47 +16,55 @@ public class Generator {
     private ArrayList<String> lastNames;
     private ArrayList<String> catProf;
     
-    public ArrayList<Human> generate(int numHumans){
-        ArrayList<Human> humans = new ArrayList(numHumans);
+    public Generator() {
+        this.setNames();
+        this.setLastNames();
+        this.setCatProf();
+    }
+    
+    public ArrayList<Human> generate(int numHumans) {
+        ArrayList<Human> humans = new ArrayList<Human>();
         
-        for (Human human : humans) {
+        for (int i = 0; i < numHumans; i++) {
             humans.add(new Human(
-                getRandomName(this.names), 
-                getRandomLastName(this.lastNames), 
+                getRandomName(), 
+                getRandomLastName(), 
                 getRandomSalary(), 
                 getRandomBYear(), 
-                getRandomProfCat(this.catProf)));
+                getRandomProfCat()));
         }
         return humans;
     }
     
-    public String getRandomName(ArrayList<String> names){
-        int max = names.size();
-        int randPosition = (int)Math.random() * max;
+    public String getRandomName() {
+        int max = this.names.size();
+        int randPosition = (int)(Math.random() * max);
         return names.get(randPosition);
     }
     
-    public String getRandomLastName(ArrayList<String> lastNames){
-        int max = lastNames.size();
-        int randPosition = (int)Math.random() * max;
+    public String getRandomLastName() {
+        int max = this.lastNames.size();
+        int randPosition = (int)(Math.random() * max);
         return lastNames.get(randPosition);
     }
     
     public int getRandomSalary(){
         int salary_min=8000;
         int salary_max=150000;
-        return (int) ((Math.random() + salary_min) * salary_max);
+        int range = (salary_max - salary_min) + 1;   
+        return (int)(Math.random() * range);
     }
     
     public int getRandomBYear(){
         int yearMin=1951;
         int yearMax=1998;
-        return (int) ((Math.random() + yearMin) * yearMax);
+        int range = (yearMax - yearMin) + 1;   
+        return (int)(Math.random() * range);
     }
     
-    public String getRandomProfCat(ArrayList<String> catProf){
-        int max = catProf.size();
-        int randPosition = (int)Math.random() * max;
+    public String getRandomProfCat(){
+        int max = this.catProf.size();
+        int randPosition = (int)(Math.random() * max);
         return catProf.get(randPosition);
     }
     

@@ -66,6 +66,6 @@ public class Human {
     
     public String toInsert(String table){
         return ("INSERT INTO " + table + " VALUES('" + this.name + "', " + "'" + this.lName + "', " + this.salary + ", " + this.bYear
-                + ", '" + this.profCat + "');");
+                + ", '" + this.profCat + "');" + "\n");
     }
 }
