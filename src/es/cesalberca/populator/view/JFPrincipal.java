@@ -19,8 +19,9 @@ public class JFPrincipal extends javax.swing.JFrame {
         initComponents();
         initComponents();
         jpp = new JPPrincipal();
-        jpp.inicializador();
         this.getContentPane().add(jpp);
+        this.setBounds(100,100,500,600);
+        this.setVisible(true);
     }
 
     /**

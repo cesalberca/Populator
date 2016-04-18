@@ -89,11 +89,14 @@ public class JPPrincipal extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     
     private void jbGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGenerarActionPerformed
-        ArrayList<Human> humans = new ArrayList();
         Generator gen = new Generator();
-        humans = gen.generate((int)jsRandom.getValue());
-        FileExporter fex = new FileExporter("inserts.txt",  "t_empleados");
-        fex.save(humans);
+        ArrayList<Human> myObject = gen.generate(10);
+        for (Human h : myObject) {
+            System.out.println("hola");
+            System.out.println(h.toInsert("t_emple"));
+        }
+        //FileExporter fex = new FileExporter("inserts.txt",  "t_empleados");
+        //fex.save(gen.generate((int)jsRandom.getValue()));
     }//GEN-LAST:event_jbGenerarActionPerformed
 
 
@@ -106,17 +109,5 @@ public class JPPrincipal extends javax.swing.JPanel {
     private javax.swing.JSpinner jsRandom;
     private javax.swing.JTextArea jtInserts;
     // End of variables declaration//GEN-END:variables
-
-  public void inicializador(){
-    
-    
-    jtInserts.setText(" ");
-    jsRandom.setValue(0);
-    }
-
-
-
-
-
 
 }

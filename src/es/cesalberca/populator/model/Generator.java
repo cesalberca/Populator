@@ -17,7 +17,7 @@ public class Generator {
     private ArrayList<String> catProf;
     
     public ArrayList<Human> generate(int numHumans){
-        ArrayList<Human> humans = humans = new ArrayList(numHumans);
+        ArrayList<Human> humans = new ArrayList(numHumans);
         
         for (Human human : humans) {
             humans.add(new Human(
@@ -25,7 +25,7 @@ public class Generator {
                 getRandomLastName(this.lastNames), 
                 getRandomSalary(), 
                 getRandomBYear(), 
-                getRandomProfCat()));
+                getRandomProfCat(this.catProf)));
         }
         return humans;
     }
@@ -54,7 +54,7 @@ public class Generator {
         return (int) ((Math.random() + yearMin) * yearMax);
     }
     
-    public String getRandomProfCat(){
+    public String getRandomProfCat(ArrayList<String> catProf){
         int max = catProf.size();
         int randPosition = (int)Math.random() * max;
         return catProf.get(randPosition);
