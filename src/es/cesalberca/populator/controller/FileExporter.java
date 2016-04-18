@@ -1,6 +1,6 @@
 package es.cesalberca.populator.controller;
 
-import es.cesalberca.populator.model.Humano;
+import es.cesalberca.populator.model.Human;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -12,18 +12,18 @@ import java.util.ArrayList;
  * @author César Alberca
  */
 public class FileExporter {
-    ArrayList<Humano> humans = null;
+    ArrayList<Human> humans = null;
     private String fileName;
     
     public FileExporter(String fileName) {
         this.fileName = fileName;
     }
     
-    public void save(ArrayList<Humano> humans) {
+    public void save(ArrayList<Human> humans) {
         PrintWriter pw = null;
         try {
             pw = new PrintWriter(new FileWriter(this.fileName, true));
-            for (Humano human : humans) {
+            for (Human human : humans) {
                 pw.append(humans.toInsert());
             }
             pw.flush();

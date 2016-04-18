@@ -9,14 +9,14 @@ package es.cesalberca.populator.model;
  *
  * @author dam
  */
-public class Humano {
+public class Human {
     private String name;
     private String lName;
     private int salary;
     private int bYear;
     private String profCat;
 
-    public Humano(String name, String lName, int salary, int bYear, String profCat) {
+    public Human(String name, String lName, int salary, int bYear, String profCat) {
         this.name = name;
         this.lName = lName;
         this.salary = salary;
