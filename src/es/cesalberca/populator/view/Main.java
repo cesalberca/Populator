@@ -15,7 +15,10 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+         JFPrincipal jfp = new JFPrincipal();
+        jfp.setBounds(100,100,500,500);
+        jfp.setVisible(true);
+        JPPrincipal miPanel = new JPPrincipal();
     }
     
 }
