@@ -16,7 +16,7 @@ public class Main {
      */
     public static void main(String[] args) {
          JFPrincipal jfp = new JFPrincipal();
-        jfp.setBounds(100,100,500,500);
+        jfp.setBounds(100,100,500,600);
         jfp.setVisible(true);
         JPPrincipal miPanel = new JPPrincipal();
     }
