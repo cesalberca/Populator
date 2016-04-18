@@ -13,10 +13,12 @@ import java.util.ArrayList;
  */
 public class FileExporter {
     ArrayList<Human> humans = null;
+    private String table;
     private String fileName;
     
-    public FileExporter(String fileName) {
+    public FileExporter(String fileName, String table) {
         this.fileName = fileName;
+        this.table = table;
     }
     
     public void save(ArrayList<Human> humans) {
@@ -24,7 +26,7 @@ public class FileExporter {
         try {
             pw = new PrintWriter(new FileWriter(this.fileName, true));
             for (Human human : humans) {
-                pw.append(humans.toInsert());
+                pw.append(human.toInsert(table));
             }
             pw.flush();
         } catch (FileNotFoundException e) {
