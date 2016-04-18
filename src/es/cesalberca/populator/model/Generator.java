@@ -16,7 +16,6 @@ public class Generator {
     private ArrayList<String> lastNames;
     private ArrayList<String> catProf;
     
-    
     public ArrayList<Human> generate(int numHumans){
         ArrayList<Human> humans = humans = new ArrayList(numHumans);
         

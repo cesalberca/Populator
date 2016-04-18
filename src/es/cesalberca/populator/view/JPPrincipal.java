@@ -7,6 +7,8 @@ package es.cesalberca.populator.view;
 
 import es.cesalberca.populator.controller.FileExporter;
 import es.cesalberca.populator.model.Generator;
+import es.cesalberca.populator.model.Human;
+import java.util.ArrayList;
 
 /**
  *
@@ -87,9 +89,11 @@ public class JPPrincipal extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     
     private void jbGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGenerarActionPerformed
+        ArrayList<Human> humans = new ArrayList();
         Generator gen = new Generator();
+        humans = gen.generate((int)jsRandom.getValue());
         FileExporter fex = new FileExporter("inserts.txt",  "t_empleados");
-        fex.save(gen.generate((int)jsRandom.getValue()));
+        fex.save(humans);
     }//GEN-LAST:event_jbGenerarActionPerformed
 
 
