@@ -64,5 +64,8 @@ public class Humano {
         this.profCat = profCat;
     }
     
-    
+    public String toInsert(String table){
+        return ("INSERT INTO " + table + " VALUES('" + this.name + "', " + "'" + this.lName + "', " + this.salary + ", " + this.bYear
+                + ", '" + this.profCat + "');");
+    }
 }
