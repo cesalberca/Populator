@@ -13,16 +13,46 @@ import java.util.ArrayList;
  */
 public class Generator {
     private ArrayList<String> names;
+    private ArrayList<String> lastNames;
     
     public ArrayList<Human> generate(int numHumans){
         ArrayList<Human> humans = humans = new ArrayList(numHumans);
-        Human human = new Human(
-                getRandomName(), 
-                getRandomLastName(), 
+        humans.add(new Human(
+                getRandomName(this.names), 
+                getRandomLastName(this.lastNames), 
                 getRandomSalary(), 
                 getRandomBYear(), 
-                getRandomProfCat());
+                getRandomProfCat()));
         return humans;
+    }
+    
+    
+    
+    public String getRandomName(ArrayList<String> names){
+        int max = names.size();
+        int randPosition = (int)Math.random() * max;
+        return names.get(randPosition);
+    }
+    
+    public String getRandomLastName(ArrayList<String> lastNames){
+        int max = lastNames.size();
+        int randPosition = (int)Math.random() * max;
+        return lastNames.get(randPosition);
+    }
+    
+    public int getRandomSalary(){
+        int salary_min=8000;
+        int salary_max=150000;
+        return (int) ((Math.random() + salary_min) * salary_max);
+        
+    }
+    
+    public int getRandomBYear(){
+        return 1;
+    }
+    
+    public String getRandomProfCat(){
+        return "b";
     }
     
     public void setNames() {
@@ -59,29 +89,37 @@ public class Generator {
         names.add("Agustín");
     }
     
-    public String getRandomName(ArrayList<String> names){
-        int max = names.size();
-        int randPosition = (int)Math.random() * max;
-        return names.get(randPosition);
+    public void setLastNames() {
+        lastNames = new ArrayList();
+        lastNames.add("Aarón");
+        lastNames.add("Abdalá");
+        lastNames.add("Abdón");
+        lastNames.add("Abdul");
+        lastNames.add("Abel");
+        lastNames.add("Abelardo");
+        lastNames.add("Abilio");
+        lastNames.add("Abner");
+        lastNames.add("Abraham");
+        lastNames.add("Absalón");
+        lastNames.add("Acacio");
+        lastNames.add("Accio");
+        lastNames.add("Adalberto");
+        lastNames.add("Adán");
+        lastNames.add("Adelfo");
+        lastNames.add("Adelino");
+        lastNames.add("Adelio");
+        lastNames.add("Adolfo");
+        lastNames.add("Adonaí");
+        lastNames.add("Adonis");
+        lastNames.add("Adrián");
+        lastNames.add("Adriano");
+        lastNames.add("Adulfo");
+        lastNames.add("Africano");
+        lastNames.add("Afrodisio");
+        lastNames.add("Agamenón");
+        lastNames.add("Agapito");
+        lastNames.add("Agesilao");
+        lastNames.add("Agripino");
+        lastNames.add("Agustín");
     }
-    
-    public String getRandomLastName(){
-        return "a";
-    }
-    
-    public int getRandomSalary(){
-        int salary_min=8000;
-        int salary_max=150000;
-        return (int) ((Math.random() + salary_min) * salary_max);
-        
-    }
-    
-    public static int getRandomBYear(){
-        return 1;
-    }
-    
-    public static String getRandomProfCat(){
-        return "b";
-    }
-    
 }
